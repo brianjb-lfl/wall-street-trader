@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Wall Street Trader</title>
+    <meta name="description" content="For armchair investors, play money, the real market">
+    <link rel="stylesheet" type="text/css" href="./main.css">
+  </head>
+  <body>
+    <div id="container">
+
+      <div id="front-page" class="page">
+        <h1>Wall Street Trader</h1>
+        <h3>Front Screen</h3>
+        <form id="login-form">
+          <input type="text" id="username-input" class="gen-input">
+          <button type="submit" id="login-submit-btn" class="gen-button">Login</button>
+        </form>
+      </div>
+
+      <div id="main-page" class="page">
+        <h1>Wall Street Trader</h1>
+        <h3>Main Screen</h3>
+          <div id="portfolio-value-disp">
+            <button type="button" id="view-portfolio-btn" class="gen-button">View Portfolio</button>
+          </div>
+          <div id="cash-balance-disp">
+            <button type="button" id="goto-quote-btn" class="gen-button">Get Quote</button>
+          </div>            
+      </div>
+
+      <div id="quote-page" class="page">
+        <h1>Wall Street Trader</h1>
+        <h3>Quote Screen</h3>
+        <button type="button" id="buy-stock-btn" class="gen-button">Buy</button>
+        <button type="button" id="quote-exit-btn" class="gen-button">Return</button>
+      </div>
+
+      <div id="portfolio-page" class="page">
+        <h1>WallStreet Trader</h1>
+          <button type="button" id="sell-stock-btn" class="gen-button">Sell</button>
+          <button type="button" id="portfolio-exit-btn" class="gen-button">Return</button>
+        <h3>Portfolio Screen</h3>
+      </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="./app.js"></script>
+    <script src="./render.js"></script>
+  </body>
+</html>

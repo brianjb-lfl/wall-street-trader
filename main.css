@@ -1,0 +1,36 @@
+* {
+  font-family: Arial;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+.gen-button {
+  height: 48px;
+  width: 160px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: #033103;
+}
+
+.gen-input {
+  height: 40px;
+  width: 320px;
+  padding: 2px 8px;
+  margin-left: 8px;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  border-width: 5px;
+}
