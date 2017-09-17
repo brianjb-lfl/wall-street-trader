@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS transactions`;
+DROP TABLE IF EXISTS transactions;
 DROP TABLE IF EXISTS quotes;
 DROP TABLE IF EXISTS params;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users(
 	id serial NOT NULL PRIMARY KEY,
@@ -11,21 +11,21 @@ CREATE TABLE users(
 CREATE TABLE transactions (
 	id serial NOT NULL PRIMARY KEY,
 	user_id INTEGER NOT NULL REFERENCES users ON DELETE CASCADE,
-	trans_dt DATETIME NOT NULL DEFAULT(GETDATE()),
+	trans_dt TIMESTAMPTZ NOT NULL DEFAULT(NOW()),
 	trans_desc VARCHAR(48),
 	trans_symbol VARCHAR(16),
-	trans_shares DOUBLE,
-	trans_amd DOUBLE
+	trans_shares NUMERIC(15,3),
+	trans_amd NUMERIC(20,2)
 );
 
 CREATE TABLE quotes (
 	id serial NOT NULL PRIMARY KEY,
 	symbol VARCHAR(16),
-	open_price DOUBLE,
-	high_price DOUBLE,
-	low_price DOUBLE,
-	curr_price DOUBLE,
-	last_update DATETIME NOT NULL DEFAULT(GETDATE())
+	open_price NUMERIC(12,3),
+	high_price NUMERIC(12,3),
+	low_price NUMERIC(12,3),
+	curr_price NUMERIC(12,3),
+	last_update TIMESTAMPTZ NOT NULL DEFAULT(NOW())
 );
 
 CREATE TABLE params (
@@ -38,6 +38,6 @@ INSERT INTO users (user_name)
 	VALUES ('testUser');
 	
 INSERT INTO params (param_key, param_val, param_note)
-	VALUES ('appState', 'front', 'front, main, quote or portfolio),
+	VALUES ('appState', 'front', 'front, main, quote or portfolio'),
 	('update_freq', '60', 'minutes, how often to refresh quotes'),
 	('start_bal', '10000', 'new user starting cash balance');
