@@ -21,9 +21,13 @@
         <h1>Wall Street Trader</h1>
         <h3>Main Screen</h3>
           <div id="portfolio-value-disp">
+            <h4>Portfolio Value:</h4>
+            <span class="gen-balance-display">$57,895.48</span>
             <button type="button" id="view-portfolio-btn" class="gen-button">View Portfolio</button>
           </div>
           <div id="cash-balance-disp">
+            <h4>Cash Balance:</h4>
+            <span class="gen-balance-display">$4,371.27</span>
             <button type="button" id="goto-quote-btn" class="gen-button">Get Quote</button>
           </div>            
       </div>
@@ -31,8 +35,15 @@
       <div id="quote-page" class="page">
         <h1>Wall Street Trader</h1>
         <h3>Quote Screen</h3>
-        <button type="button" id="buy-stock-btn" class="gen-button">Buy</button>
-        <button type="button" id="quote-exit-btn" class="gen-button">Return</button>
+        <form id="get-quote-form">
+          <input type="text" id="symbol-input" class="gen-input">
+          <button type="submit" id="get-quote-btn" class="gen-button">Get Quote</button>
+        </form>
+        <div id="quote-display" class="hidden">
+          <div id="quote-text"></div>
+          <button type="button" id="buy-stock-btn" class="gen-button">Buy</button>
+          <button type="button" id="quote-exit-btn" class="gen-button">Return</button>
+        </div>  
       </div>
 
       <div id="portfolio-page" class="page">
@@ -45,6 +56,7 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="./app.js"></script>
+    <script src="./api.js"></script>
     <script src="./render.js"></script>
   </body>
 </html>

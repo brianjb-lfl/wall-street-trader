@@ -40,4 +40,4 @@ INSERT INTO users (user_name)
 INSERT INTO params (param_key, param_val, param_note)
 	VALUES ('appState', 'front', 'front, main, quote or portfolio'),
 	('update_freq', '60', 'minutes, how often to refresh quotes'),
-	('start_bal', '10000', 'new user starting cash balance');
+	('start_bal', '100000', 'new user starting cash balance');

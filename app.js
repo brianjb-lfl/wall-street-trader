@@ -1,9 +1,11 @@
 'use strict';
 
+/* global render, getStockData, renderQuote */
+
 let appState;         // front, main, quote, portfolio
 
 function frontPgHandler() {
-  $('#login-form').on('click', '#login-submit-btn', event => {
+  $('#login-form').on('submit', event => {
     event.preventDefault();
     console.log('runing front page handler');
     appState = 'main';
@@ -25,14 +27,27 @@ function mainQuoteBtnHandler() {
   });
 }
 
-function quotePgHandler() {
+function quotePgGetQuoteHandler() {
+  $('#get-quote-form').on('submit', event => {
+    event.preventDefault();
+    return getStockData($('#symbol-input').val())
+      .then(res => {
+        console.log(res);
+        const maxDate = (Object.keys(res['Time Series (Daily)']).sort ( (a, b) => b - a)[0]);
+        renderQuote(res['Time Series (Daily)'][maxDate], res['Meta Data']['2. Symbol']);
+      });
+  });
+}
+
+function quotePgExitHandler() {
   $('#quote-page').on('click', '#quote-exit-btn', event => {
     appState = 'main';
+    $('#quote-display').addClass('hidden');
     render();
   });
 }
 
-function portfolioPgHandler() {
+function portfolioPgExitHandler() {
   $('#portfolio-page').on('click', '#portfolio-exit-btn', event => {
     appState = 'main';
     render();
@@ -44,8 +59,9 @@ function handleWSTApp() {
   frontPgHandler();
   mainPortfolioBtnHandler();
   mainQuoteBtnHandler();
-  quotePgHandler();
-  portfolioPgHandler();
+  quotePgGetQuoteHandler();
+  quotePgExitHandler();
+  portfolioPgExitHandler();
   appState = 'front';
   render();
 }
