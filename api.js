@@ -17,12 +17,12 @@ const getStockData = function(symbol) {
     url.searchParams.append(key, query[key]);
   });
   console.log(url);
-  return fetch(url).then(function(res) {
-    if(!res.ok) {
-      return Promise.reject(res.statusText);
-    }
-    return res.json();
-  });
- 
+  return fetch(url)
+    .then(function(res) {
+      if(!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      return res.json();
+    });
 };
 
