@@ -38,3 +38,4 @@ function renderQuote(quoteObj, quoteSym) {
   $('#quote-display').removeClass('hidden');
   $('#symbol-input').val('');
 }
+// this is a change
